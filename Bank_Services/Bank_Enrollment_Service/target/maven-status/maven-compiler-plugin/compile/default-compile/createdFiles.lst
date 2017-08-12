@@ -1,0 +1,7 @@
+com\spring\dao\UserDao.class
+com\spring\dao\UserDaoXml.class
+com\spring\dao\UserDaoImpl.class
+com\spring\service\User.class
+com\spring\xml\UserEnrollmentXml.class
+com\spring\service\UserController.class
+com\spring\xml\UserListXml.class
