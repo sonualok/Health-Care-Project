@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
 
 
 import com.spring.service.User;
+import com.spring.validation.InputValidation;
+import com.spring.validation.InputValidationCheck;
 import com.spring.xml.UserEnrollmentXml;
 
 import oracle.sql.DATE;
@@ -25,10 +27,23 @@ public class UserDaoImpl implements UserDao
 	@Autowired
 	private  JdbcTemplate  jt;
 	
-	static final Logger  logger=Logger.getLogger(UserDaoImpl.class);	
+	static final Logger logger=Logger.getLogger(UserDaoImpl.class);	
 	
 	public String enrollUser(UserEnrollmentXml userEnrollmentXml){
-	
+		
+		logger.debug("Starting Validation Process inside UserDaoImpl class and enrollUser Method");
+		
+		InputValidationCheck inputValidationCheck       = new InputValidation().startValidation(userEnrollmentXml);
+		boolean existinguser                            = new CheckExistingUser().existingCustomerCheck(userEnrollmentXml);
+		if(existinguser==false){
+			
+		new SetUpAccount().setUpBankAccount(userEnrollmentXml);
+		new SetUpAccount().setUpBankAccountHistory(userEnrollmentXml);
+		new SetUpAccount().setUpcustomerDemographicDetails(userEnrollmentXml);
+		}
+		
+		
+		
 		int  i = jt.update("insert  into  test.bank_account_main values(?,?,?,?,?,?,?,?)", 
 				                                                   userEnrollmentXml.getCustomer_bank_id(),
 				                                                   "1",

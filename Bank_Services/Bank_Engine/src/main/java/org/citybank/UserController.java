@@ -40,7 +40,7 @@ public class UserController
 			                                         //consumes=MediaType.APPLICATION_XML_VALUE)
 	public   String  EnrollmentProcess(@RequestBody UserEnrollmentXml userEnrollmentXml)
 	{	System.out.println("Inside EnrollmentProcess");
-		logger.debug("Starting Enrollment Process inside EnrollmentProcess Method");
+	    logger.debug("Inside addUser Resource::::::Request to add the User at bank side");
 		
 		String  str = userDao.enrollUser(userEnrollmentXml);
 		return str;

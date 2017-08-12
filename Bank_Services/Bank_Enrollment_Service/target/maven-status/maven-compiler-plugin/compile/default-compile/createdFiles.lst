@@ -1,7 +1,11 @@
 com\spring\dao\UserDao.class
-com\spring\dao\UserDaoXml.class
 com\spring\dao\UserDaoImpl.class
 com\spring\service\User.class
+com\spring\validation\InputValidationCheck.class
 com\spring\xml\UserEnrollmentXml.class
+com\spring\dao\SetUpAccount.class
+com\spring\validation\InputValidation.class
+com\spring\dao\UserDaoXml.class
 com\spring\service\UserController.class
 com\spring\xml\UserListXml.class
+com\spring\dao\CheckExistingUser.class
